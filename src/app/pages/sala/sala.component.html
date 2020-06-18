@@ -1,0 +1,67 @@
+<style>
+  .center {
+      /* this will keep the content center */
+      position: absolute;
+      right: 0;
+      left: 0;
+      margin: auto;
+  }
+
+  .msg-group {
+    position: absolute;
+      max-width: 720px;
+      height: 92%;
+      overflow-y: scroll;  /*if the content beyond width and height, use the scrollbar*/
+  }
+
+  .card {
+      padding: 10px 0 10px 0;
+  }
+
+  .input-group {
+    position: absolute;
+      height: 8%;
+    bottom: 0;
+  }
+
+  .btn {
+      height:100%;
+  }
+</style>
+
+
+
+<button (click)="salirSala()"
+           class="btn btn-danger btn-sm" [routerLink]="['/unirseSala']" routerLinkActive="router-link-active" >Salir</button>
+<div class="container-flude"  >
+
+  <div class="msg-group center" id="mensajes">
+
+
+      <div class="card">
+           <div *ngFor="let mensaje of mensajes"
+            class="card-body">
+               <h6 *ngIf=" usuario == mensaje.user;" class="card-subtitle  text-muted text-right">Tu: </h6>
+               <h6 *ngIf=" usuario != mensaje.user;" class="card-subtitle text-muted text-left">{{mensaje.user}}:</h6>
+               <p *ngIf=" usuario == mensaje.user;" class="card-text float-right">{{mensaje.body}}</p>
+               <p *ngIf=" usuario != mensaje.user;" class="card-text float-left">{{mensaje.body}}</p>
+           </div>
+      </div>
+
+  </div>
+
+  <form action="" #f="ngForm" (ngSubmit)="sendMessage(f)" >
+    <div class="input-group">
+    <input name="mensaje" ngModel id="input-box" class="form-control" rows="1" placeholder="Di algo..."  autofocus
+    autocomplete="off">
+      <span class="input-group-btn">
+          <button
+           class="btn btn-secondary btn-sm" style="background-color: chocolate; border-color: white;" type="submit">Enviar</button>
+
+      </span>
+    </div>
+  </form>
+
+
+
+</div>

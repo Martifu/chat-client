@@ -1,0 +1,21 @@
+<div class="jumbotron jumbotron-fluid">
+  <div class="container text-center">
+    <h1 class="display-4">Bienvenido a <strong style="color: chocolate;">HiChat!</strong></h1>
+    <p class="lead">El chat que estabas buscando para compartir tus ideas.</p>
+  </div>
+</div>
+
+<div class="container text-center">
+  <p class="display-5">Comienza ahora. <strong style="color: chocolate;">Elige una opción.</strong></p>
+
+  <div class="d-flex justify-content-center mt-3">
+    <button
+     [routerLink]="['/unirseSala']" routerLinkActive="router-link-active"
+     class="btn btn-info btn-lg">Unirse a una sala</button>
+      <div  style="width: 50px;"></div>
+    <button (click)="crearSala()"
+     class="btn btn-dark btn-lg">Crear una sala</button>
+  </div>
+</div>
+
+

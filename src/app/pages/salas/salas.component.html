@@ -1,0 +1,40 @@
+<div class=" jumbotron-fluid m-5">
+  <div class="container text-center">
+    <h1 class="display-4"><strong style="color: chocolate;">Elige una de las salas que te interese.</strong></h1>
+  </div>
+</div>
+
+
+<div class="container text-right">
+  <button [routerLink]="['/home']" routerLinkActive="router-link-active"  class="btn btn-primary ">Regresar</button>
+</div>
+
+<div class="container">
+  <table *ngIf="!cargando && salas.length > 0"
+    class="table table-bordered mt-3">
+      <thead class="thead">
+        <tr>
+          <th scope="col">Nombre</th>
+          <th scope="col">Descripcion</th>
+          <th scope="col">Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let sala of salas; ">
+          <td>{{sala.name}}</td>
+          <td>{{sala.description}}</td>
+          <td>
+            <button
+             style="background-color: chocolate; border-color: white;" class="btn btn-primary mr-1" [routerLink]="['/sala', sala.name]" routerLinkActive="router-link-active" >
+              Unirme
+            </button>
+          </td>
+        </tr>
+
+      </tbody>
+  </table>
+
+</div>
+
+
+
